@@ -1,0 +1,45 @@
+{
+  "name": "dnd",
+  "version": "1.0.0",
+  "author": "Pavel Ivanov",
+  "description": "Drag `n Drop",
+  "homepage": "https://github.com/pavelivanov/dnd#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pavelivanov/dnd.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pavelivanov/dnd/issues"
+  },
+  "keywords": [
+    "dnd"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "scripts": {
+    "dev": "babel ./src --out-dir ./lib --watch",
+    "build": "babel ./src --out-dir ./lib",
+    "dev:webpack": "NODE_ENV=development webpack --config webpack.config.babel.js --watch",
+    "build:webpack": "NODE_ENV=production webpack --config webpack.config.babel.js"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/plugin-transform-classes": "^7.0.0",
+    "@babel/plugin-transform-destructuring": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "babel-loader": "^8.0.2",
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0",
+    "webpack": "^4.19.1",
+    "webpack-cli": "^3.1.1"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.0.0"
+  }
+}

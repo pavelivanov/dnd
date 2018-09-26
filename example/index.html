@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DND</title>
+
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .items {
+      width: 1000px;
+      margin: 40px auto;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .items:first-child {
+      margin-top: 0;
+    }
+
+    .item {
+      width: calc(100% / 6);
+      padding: 5px;
+    }
+
+    .item.disabled .itemContent {
+      background-color: #ccc;
+      cursor: default;
+    }
+
+    .itemContent {
+      height: 80px;
+      line-height: 80px;
+      background-color: #61a0ff;
+      cursor: pointer;
+      user-select: none;
+      text-align: center;
+      font-size: 30px;
+      font-weight: bold;
+      color: #fff;
+    }
+  </style>
+
+  <script type="text/javascript" src="dnd.js"></script>
+</head>
+<body>
+
+  <div class="items">
+    <div class="item"><div class="itemContent">1</div></div>
+    <div class="item"><div class="itemContent">2</div></div>
+    <div class="item"><div class="itemContent">3</div></div>
+    <div class="item"><div class="itemContent">4</div></div>
+    <div class="item"><div class="itemContent">5</div></div>
+    <div class="item"><div class="itemContent">6</div></div>
+    <div class="item"><div class="itemContent">7</div></div>
+    <div class="item"><div class="itemContent">8</div></div>
+    <div class="item"><div class="itemContent">9</div></div>
+  </div>
+
+  <div class="items">
+    <div class="item disabled"><div class="itemContent">1</div></div>
+    <div class="item"><div class="itemContent">2</div></div>
+    <div class="item disabled"><div class="itemContent">3</div></div>
+    <div class="item disabled"><div class="itemContent">4</div></div>
+    <div class="item"><div class="itemContent">5</div></div>
+    <div class="item"><div class="itemContent">6</div></div>
+    <div class="item"><div class="itemContent">7</div></div>
+    <div class="item"><div class="itemContent">8</div></div>
+    <div class="item disabled"><div class="itemContent">9</div></div>
+  </div>
+
+  <div class="items">
+    <div class="item"><div class="itemContent">1</div></div>
+    <div class="item"><div class="itemContent">2</div></div>
+    <div class="item disabled"><div class="itemContent">3</div></div>
+    <div class="item"><div class="itemContent">4</div></div>
+    <div class="item disabled"><div class="itemContent">5</div></div>
+    <div class="item"><div class="itemContent">6</div></div>
+    <div class="item disabled"><div class="itemContent">7</div></div>
+    <div class="item"><div class="itemContent">8</div></div>
+    <div class="item"><div class="itemContent">9</div></div>
+  </div>
+
+  <script>
+    const dndNodes = document.getElementsByClassName('items');
+
+    [].forEach.call(dndNodes, function (dndNode) {
+      const dnd = new DND(dndNode, {
+        itemSelector: 'item',
+        itemFilter: (node) => !node || !node.classList || !node.classList.contains('disabled'),
+      });
+    });
+  </script>
+
+</body>
+</html>
