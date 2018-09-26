@@ -1,6 +1,5 @@
 import path from 'path'
 import webpack from 'webpack'
-import UglifyJsPlugin from 'uglifyjs-webpack-plugin'
 
 
 const globals = {
@@ -33,19 +32,5 @@ export default {
 
   plugins: [
     new webpack.DefinePlugin(globals),
-    ...(
-      process.env.NODE_ENV === 'production' ? [
-        new UglifyJsPlugin({
-          comments: false,
-          compress: {
-            pure_getters: true,
-            unsafe: true,
-            unsafe_comps: true,
-            warnings: false,
-            screw_ie8: true,
-          },
-        }),
-      ] : []
-    ),
-  ]
+  ],
 }

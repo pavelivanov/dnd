@@ -20,7 +20,7 @@
     "dev": "babel ./src --out-dir ./lib --watch",
     "build": "babel ./src --out-dir ./lib",
     "dev:webpack": "NODE_ENV=development webpack --config webpack.config.babel.js --watch",
-    "build:webpack": "NODE_ENV=production webpack --config webpack.config.babel.js"
+    "build:webpack": "NODE_ENV=production webpack --config webpack.config.babel.js && surge -p ./example -d dndjs.surge.sh"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",
