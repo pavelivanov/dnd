@@ -371,16 +371,6 @@ class DND {
     this.clear()
     this.getItems()
   }
-
-  addItem(node) {
-    this.items.push(node)
-  }
-
-  removeItem(node) {
-    const index = this.items.findIndex((item) => item === node)
-
-    this.items = this.items.slice(index, 1)
-  }
 }
 
 
